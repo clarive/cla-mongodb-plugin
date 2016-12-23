@@ -1,8 +1,8 @@
 var ci = require("cla/ci");
 
 ci.createClass("MongoDB", {
-    form: '/plugin/cla-mongoDB-plugin/form/mongodb-server.js',
-    icon: '/plugin/cla-mongoDB-plugin/icon/mongodb.svg',
+    form: '/plugin/cla-mongodb-plugin/form/mongodb-server.js',
+    icon: '/plugin/cla-mongodb-plugin/icon/mongodb.svg',
     has: {
         server: {
             is: "rw",
