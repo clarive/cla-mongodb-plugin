@@ -3,7 +3,7 @@
     var mongodb = Cla.ui.ciCombo({
         name: 'mongodb',
         value: params.data.mongodb || '',
-        class: 'BaselinerX::CI::MongoDB',
+        class: 'MongoDB',
         fieldLabel: _('MongoDB Database'),
         allowBlank: false,
         with_vars: 1
