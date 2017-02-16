@@ -36,11 +36,11 @@ reg.register('service.mongodb.executeScript', {
         }
 
         config += 'Script: ' + '\n' + script;
-        log.info("STARTING to execute the script in " + mongoConection, config);
+        log.debug("STARTING to execute the script in " + mongoConection, config);
         agent.execute(scriptExecution);
 
         if (agent.tuple().rc == 0) {
-            log.info("The script was executed successfully in " + mongoConection, agent.tuple().output);
+            log.info("Script finished", agent.tuple().output);
         } else {
             log.error("Error running script ", agent.tuple().output);
             throw new Error('Error running script');
