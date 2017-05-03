@@ -18,25 +18,17 @@ reg.register('service.mongodb.executeScript', {
         var agent = server.connect();
         var scriptExecution = '';
         var mongoConection = server.hostname() + ':' + MongoDB.port + '/' + MongoDB.dbName;
-        var config = '';
 
         script = script.replace(/"/g, "\\\"");
-
-        config += 'Hostname: ' + server.hostname() + '\n';
-        config += 'Port: ' + MongoDB.port + '\n';
-        config += 'Database: ' + MongoDB.dbName + '\n';
 
         if (!MongoDB.pwd || !MongoDB.userName) {
             scriptExecution = 'mongo ' + mongoConection + ' --eval ' + '"' + script + '"';
 
         } else {
-            config += 'User: ' + MongoDB.userName + '\n';
             scriptExecution = 'mongo ' + mongoConection;
             scriptExecution += ' --eval ' + '"db.auth(' + "'" + MongoDB.userName + "', '" + MongoDB.pwd + "'); " + script + '"';
         }
 
-        config += 'Script: ' + '\n' + script;
-        log.debug("STARTING to execute the script in " + mongoConection, config);
         agent.execute(scriptExecution);
 
         if (agent.tuple().rc == 0) {
