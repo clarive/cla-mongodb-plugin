@@ -1,0 +1,39 @@
+#: init/mongodb-executeScript-plugin.js
+msgid "Run a script in MongoDB database"
+msgstr "Ejecutar un script en base de datos de MongoDB"
+
+#: init/mongodb-executeScript-plugin.js
+msgid "Script finished"
+msgstr "Script finalizado"
+
+#: init/mongodb-executeScript-plugin.js
+msgid "Error running script "
+msgstr "Error ejecutando el script"
+
+#: public/form/mongodb-executeScript-form.js
+msgid "MongoDB Database"
+msgstr "Base de datos de MongoDB"
+
+#: public/form/mongodb-executeScript-form.js
+msgid "Script"
+msgstr "Script"
+
+#: public/form/mongodb-server.js
+msgid "Server"
+msgstr "Servidor"
+
+#: public/form/mongodb-server.js
+msgid "Port"
+msgstr "Puerto"
+
+#: public/form/mongodb-server.js
+msgid "Database Name"
+msgstr "Nombre de la base de datos"
+
+#: public/form/mongodb-server.js
+msgid "User name"
+msgstr "Nombre de usuario"
+
+#: public/form/mongodb-server.js
+msgid "Password"
+msgstr "Contraseña"

@@ -1,7 +1,7 @@
 var reg = require("cla/reg");
 
 reg.register('service.mongodb.executeScript', {
-    name: 'Run a script in MongoDB database',
+    name: _('Run a script in MongoDB database'),
     icon: '/plugin/cla-mongodb-plugin/icon/mongodb.svg',
     form: '/plugin/cla-mongodb-plugin/form/mongodb-executeScript-form.js',
     handler: function(ctx, config) {
@@ -32,10 +32,9 @@ reg.register('service.mongodb.executeScript', {
         agent.execute(scriptExecution);
 
         if (agent.tuple().rc == 0) {
-            log.info("Script finished", agent.tuple().output);
+            log.info(_("Script finished"), agent.tuple().output);
         } else {
-            log.error("Error running script ", agent.tuple().output);
-            throw new Error('Error running script');
+            log.fatal(_("Error running script "), agent.tuple().output);
         }
 
     }
