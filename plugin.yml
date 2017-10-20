@@ -1,0 +1,9 @@
+name: Clarive MongoDB Plugin
+description: Plugin for MongoDB, allows execution of script against any MongoDB database.
+version: 1.0
+icon: https://github.com/clarive/cla-mongodb-plugin/public/icon/mongodb.svg
+url: https://github.com/clarive/cla-mongodb-plugin
+requires:
+  - clarive_version: 6.8 <= version
+dependencies:
+  - cla-mongodb-plugin
