@@ -15,6 +15,11 @@ ci.createClass("MongoDB", {
             default: 27017,
             required: true
         },
+        path: {
+            is: "rw",
+            isa: "Str",
+            required: false
+        },
         dbName: {
             is: "rw",
             isa: "Str",
@@ -36,5 +41,5 @@ ci.createClass("MongoDB", {
             return 1;
         }
     },
-    roles: ['DatabaseConnection']
+    roles: ['DatabaseConnection', 'ClariveSE']
 });

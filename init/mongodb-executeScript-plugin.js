@@ -4,14 +4,32 @@ reg.register('service.mongodb.executeScript', {
     name: _('Run a script in MongoDB database'),
     icon: '/plugin/cla-mongodb-plugin/icon/mongodb.svg',
     form: '/plugin/cla-mongodb-plugin/form/mongodb-executeScript-form.js',
+    rulebook: {
+        moniker: 'mongodb_script',
+        description: _('Executes a MongoDB script'),
+        required: ['server', 'code'],
+        allow: ['server', 'code', 'path', 'errors' ],
+        mapper: {
+            'server':'mongodb',
+            'code':'script',
+            'path':'path',
+        },
+        examples: [{
+            mongodb_script: {
+                server: 'mongodb_server',
+                code: ``,
+                errors: "fail"
+            }
+        }]
+    },
     handler: function(ctx, config) {
 
         var ci = require("cla/ci");
         var log = require('cla/log');
 
-        var mongodb = config.mongodb || '';
+        var mongo = config.mongodb || '';
         var MongoDB = ci.findOne({
-            mid: mongodb + ''
+            mid: mongo + ''
         });
         var script = config.script || '';
         var server = ci.load(MongoDB.server);
@@ -21,11 +39,16 @@ reg.register('service.mongodb.executeScript', {
 
         script = script.replace(/"/g, "\\\"");
 
-        if (!MongoDB.pwd || !MongoDB.userName) {
-            scriptExecution = 'mongo ' + mongoConection + ' --eval ' + '"' + script + '"';
-
+        if (MongoDB.path){
+            scriptExecution = MongoDB.path;
         } else {
-            scriptExecution = 'mongo ' + mongoConection;
+            scriptExecution = "mongo";
+        }
+
+        if (!MongoDB.pwd || !MongoDB.userName) {
+            scriptExecution += ' ' + mongoConection + ' --eval ' + '"' + script + '"';
+        } else {
+            scriptExecution += ' ' + mongoConection;
             scriptExecution += ' --eval ' + '"db.auth(' + "'" + MongoDB.userName + "', '" + MongoDB.pwd + "'); " + script + '"';
         }
 

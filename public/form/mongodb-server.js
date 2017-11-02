@@ -17,6 +17,11 @@
         vtype: 'port'
     });
 
+    var path = Cla.ui.textField({
+        name: 'path',
+        fieldLabel: _('Path'),
+    });
+
     var dbName = Cla.ui.textField({
         name: 'dbName',
         fieldLabel: _('Database Name'),
@@ -36,6 +41,7 @@
     return [
         server,
         port,
+        path,
         dbName,
         userName,
         pwd
