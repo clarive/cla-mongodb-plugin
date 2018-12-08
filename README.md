@@ -1,6 +1,6 @@
 # MongoDB Plugin
 
-<img src="https://cdn.rawgit.com/clarive/cla-mongodb-plugin/master/public/icon/mongodb.svg" alt="MongoDB Plugin" title="MongoDB Plugin" width="120" height="120">
+<img src="https://cdn.jsdelivr.net/gh/clarive/cla-mongodb-plugin/public/icon/mongodb.svg" alt="MongoDB Plugin" title="MongoDB Plugin" width="120" height="120">
 
 Plugin for MongoDB, allows execution of script against any MongoDB database.
 
